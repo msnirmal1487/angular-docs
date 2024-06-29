@@ -8,14 +8,20 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsLegacyComponent } from './product-alerts-legacy/product-alerts-legacy.component';
 import { ProductDetailsLegacyComponent } from './product-details-legacy/product-details-legacy.component';
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './shipping/shipping.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsLegacyComponent}
+      { path: 'products/:productId', component: ProductDetailsLegacyComponent},
+      { path: 'cart', component: CartComponent},
+      { path: 'shipping', component: ShippingComponent}
     ])
   ],
   declarations: [
@@ -23,7 +29,9 @@ import { ProductDetailsLegacyComponent } from './product-details-legacy/product-
     TopBarComponent,
     ProductListComponent,
     ProductAlertsLegacyComponent,
-    ProductDetailsLegacyComponent
+    ProductDetailsLegacyComponent,
+    CartComponent,
+    ShippingComponent
   ],
   bootstrap: [
     AppComponent

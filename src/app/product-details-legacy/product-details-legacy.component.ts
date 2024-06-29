@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Product, products } from '../products';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details-legacy',
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailsLegacyComponent implements OnInit{
 
   route = inject(ActivatedRoute)
+  cartService = inject(CartService)
   product: Product | undefined;
 
   ngOnInit(): void {
@@ -17,7 +19,14 @@ export class ProductDetailsLegacyComponent implements OnInit{
    const productIdFromRoute = Number(routeParams.get('productId'));
 
    this.product = products.find(p => p.id === productIdFromRoute) ;
-   
+
   }
+
+  addToCart(p: Product){
+    this.cartService.addToCart(p);
+    window.alert('Your Product has been added to cart!');
+  }
+
+  
 
 }
