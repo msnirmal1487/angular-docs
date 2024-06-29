@@ -15,6 +15,7 @@ import { ProductDetailsLegacyComponent } from './product-details-legacy/product-
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
+      { path: 'products/:productId', component: ProductDetailsLegacyComponent}
     ])
   ],
   declarations: [
